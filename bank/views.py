@@ -100,7 +100,7 @@ def deposit_view(request):
                 amount=amount,
                 balance_after=account.balance,
             )
-            messages.success(request, f'Deposited ${amount} successfully. New balance: ${account.balance}')
+            messages.success(request, f'Deposited ৳{amount} successfully. New balance: ৳{account.balance}')
             return redirect('dashboard')
     else:
         form = DepositForm()
@@ -129,7 +129,7 @@ def withdraw_view(request):
                     amount=amount,
                     balance_after=account.balance,
                 )
-                messages.success(request, f'Withdrew ${amount} successfully. New balance: ${account.balance}')
+                messages.success(request, f'Withdrew ৳{amount} successfully. New balance: ৳{account.balance}')
                 return redirect('dashboard')
     else:
         form = WithdrawForm()
@@ -146,16 +146,18 @@ def transaction_history(request):
     if type_filter:
         transactions = transactions.filter(transaction_type=type_filter)
 
-    # filter by a specific date, e.g. 2025-01-15 typed into a text box
+    # filter by a specific date, e.g. 21/05/2026 typed into a text box (dd/mm/yyyy,
+    # matches the format used everywhere else on this page)
     date_filter = request.GET.get('date', '')
     if date_filter:
-        # make sure it's actually a real YYYY-MM-DD date before filtering with it -
-        # otherwise a bad value here throws a ValidationError and crashes the page
+        # make sure it's actually a real dd/mm/yyyy date before filtering with it -
+        # otherwise a bad value would crash the page, and Django's timestamp__date
+        # lookup expects an actual date object, not a dd/mm/yyyy string
         try:
-            datetime.strptime(date_filter, '%Y-%m-%d')
-            transactions = transactions.filter(timestamp__date=date_filter)
+            parsed_date = datetime.strptime(date_filter, '%d/%m/%Y').date()
+            transactions = transactions.filter(timestamp__date=parsed_date)
         except ValueError:
-            messages.error(request, 'Please enter the date as YYYY-MM-DD.')
+            messages.error(request, 'Please enter the date as dd/mm/yyyy.')
 
     # paginate so the page doesn't get huge with lots of transactions
     paginator = Paginator(transactions, 5)

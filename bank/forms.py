@@ -28,15 +28,16 @@ class BankAccountForm(forms.ModelForm):
         widgets = {
             'account_holder_name': forms.TextInput(attrs={'class': 'form-control'}),
             'account_number': forms.TextInput(attrs={'class': 'form-control'}),
-            'balance': forms.NumberInput(attrs={'class': 'form-control'}),
+            # spelling out BDT here instead of the symbol - reads clearer in a form label
+            'balance': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Starting balance (BDT)'}),
         }
 
 
 class DepositForm(forms.Form):
     amount = forms.DecimalField(max_digits=12, decimal_places=2, min_value=0.01,
-                                 widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Amount to deposit'}))
+                                 widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Amount to deposit (BDT)'}))
 
 
 class WithdrawForm(forms.Form):
     amount = forms.DecimalField(max_digits=12, decimal_places=2, min_value=0.01,
-                                 widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Amount to withdraw'}))
+                                 widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Amount to withdraw (BDT)'}))

@@ -13,6 +13,8 @@ deposit/withdraw money, and view their transaction history.
 - Dashboard showing current balance, total deposits, total withdrawals, and
   total transaction count (calculated with Django ORM aggregates)
 - Transaction history, newest first, with search by type and filter by date
+- All amounts shown in BDT (Bangladeshi Taka), displayed as ৳ in the UI
+- Dates shown in dd/mm/yyyy format throughout
 
 ### Bonus (2 of 6 implemented)
 

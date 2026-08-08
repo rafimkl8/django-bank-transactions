@@ -64,5 +64,5 @@ class Command(BaseCommand):
 
         self.stdout.write(self.style.SUCCESS(
             f'Seeded demo_user (password: DemoPass123) with account {account.account_number}, '
-            f'balance ${account.balance}, and {len(sample_transactions)} transactions.'
+            f'balance BDT {account.balance}, and {len(sample_transactions)} transactions.'
         ))

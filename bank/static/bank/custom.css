@@ -11,6 +11,11 @@
 
 body {
     background-color: var(--ob-grey-light);
+    /* the taka symbol (Tk) needs a font that actually has the Bengali glyph -
+       listing a few common ones here so it has the best chance of rendering
+       properly instead of showing as a blank box on systems without one */
+    font-family: "Noto Sans Bengali", "Nirmala UI", "Vrinda", -apple-system,
+        "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 /* Navbar */
