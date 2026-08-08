@@ -64,7 +64,11 @@ dashboard, deposit, withdraw, transaction history) taken against the seeded
 
 ## Setup Instructions
 
-1. Open a terminal in this project's folder (`django-bank-transactions/`).
+1. Clone the repo and navigate into this assignment's folder:
+   ```
+   git clone https://github.com/wasir-codes/ostad-fullstack-python-django-react-ai.git
+   cd ostad-fullstack-python-django-react-ai/module-19/django-bank-transactions
+   ```
 
 2. Create a virtual environment and install dependencies:
    ```
