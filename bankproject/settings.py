@@ -106,7 +106,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# app is branded for a Bangladesh bank, so display times in Dhaka time (GMT+6)
+# instead of UTC - Django still stores everything in UTC in the database and
+# converts on display since USE_TZ is on
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 

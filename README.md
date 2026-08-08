@@ -14,7 +14,7 @@ deposit/withdraw money, and view their transaction history.
   total transaction count (calculated with Django ORM aggregates)
 - Transaction history, newest first, with search by type and filter by date
 - All amounts shown in BDT (Bangladeshi Taka), displayed as ৳ in the UI
-- Dates shown in dd/mm/yyyy format throughout
+- Dates shown in dd/mm/yyyy format, timestamps displayed in Dhaka time (GMT+6)
 
 ### Bonus (2 of 6 implemented)
 
@@ -118,3 +118,7 @@ then visit `http://127.0.0.1:8000/admin/`.
   with an error message and nothing is saved.
 - The search/filter form on the transaction history page uses GET so the
   filters can be combined with pagination via the URL query string.
+- `TIME_ZONE` in settings.py is set to `Asia/Dhaka` so all displayed
+  timestamps are in Dhaka time (GMT+6). Django still stores everything in
+  UTC internally (`USE_TZ = True`) and converts for display, which is the
+  standard/recommended way to handle timezones in Django.
