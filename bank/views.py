@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Sum, Count
 from django.core.paginator import Paginator
+from datetime import datetime
 
 from .forms import RegisterForm, BankAccountForm, DepositForm, WithdrawForm
 from .models import BankAccount, Transaction
@@ -145,10 +146,16 @@ def transaction_history(request):
     if type_filter:
         transactions = transactions.filter(transaction_type=type_filter)
 
-    # filter by a specific date, e.g. 2025-01-15 from a date input
+    # filter by a specific date, e.g. 2025-01-15 typed into a text box
     date_filter = request.GET.get('date', '')
     if date_filter:
-        transactions = transactions.filter(timestamp__date=date_filter)
+        # make sure it's actually a real YYYY-MM-DD date before filtering with it -
+        # otherwise a bad value here throws a ValidationError and crashes the page
+        try:
+            datetime.strptime(date_filter, '%Y-%m-%d')
+            transactions = transactions.filter(timestamp__date=date_filter)
+        except ValueError:
+            messages.error(request, 'Please enter the date as YYYY-MM-DD.')
 
     # paginate so the page doesn't get huge with lots of transactions
     paginator = Paginator(transactions, 5)

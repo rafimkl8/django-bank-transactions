@@ -13,7 +13,13 @@
         </select>
     </div>
     <div class="col-md-4">
-        <input type="date" name="date" value="{{ date_filter }}" class="form-control">
+        <!-- using a plain text input instead of type="date" - browsers render date
+             pickers in their own locale format (mm/dd/yyyy, dd/mm/yyyy, etc.) and
+             ignore placeholder text, so a text field is the only way to guarantee
+             everyone sees the same YYYY-MM-DD format we filter by in the view -->
+        <input type="text" name="date" value="{{ date_filter }}" class="form-control"
+               placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}">
+        <small class="text-muted">Format: YYYY-MM-DD</small>
     </div>
     <div class="col-md-4">
         <button type="submit" class="btn btn-primary">Filter</button>

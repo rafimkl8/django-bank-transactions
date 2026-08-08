@@ -1,7 +1,8 @@
-# Bank Account Transaction Management System
+# Bank Account Transaction Management System (Ostad Bank)
 
-A simple Django app for a bank account assignment. Logged-in users can create
-one bank account, deposit/withdraw money, and view their transaction history.
+A simple Django app for a bank account assignment, branded as "Ostad Bank"
+with a yellow/black/grey theme. Logged-in users can create one bank account,
+deposit/withdraw money, and view their transaction history.
 
 ## Features
 
@@ -12,8 +13,12 @@ one bank account, deposit/withdraw money, and view their transaction history.
 - Dashboard showing current balance, total deposits, total withdrawals, and
   total transaction count (calculated with Django ORM aggregates)
 - Transaction history, newest first, with search by type and filter by date
-- Pagination on the transaction history (5 per page)
-- Bootstrap (via CDN) for styling
+
+### Bonus (2 of 6 implemented)
+
+- **Pagination** — transaction history is paginated, 5 transactions per page
+- **Bootstrap UI** — styled with Bootstrap 5 (via CDN) plus a custom
+  yellow/black/grey theme (see `bank/static/bank/custom.css`)
 
 ## Tech Stack
 
