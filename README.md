@@ -26,7 +26,7 @@ deposit/withdraw money, and view their transaction history.
 
 - Python 3.11
 - Django 5.2
-- SQLite (default Django database, good enough for this assignment)
+- SQLite (Django's default database)
 - Bootstrap 5 (CDN, no npm/build step)
 
 ## Project Structure
