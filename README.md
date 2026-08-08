@@ -32,7 +32,7 @@ deposit/withdraw money, and view their transaction history.
 ## Project Structure
 
 ```
-bank_project/
+django-bank-transactions/
 ├── bankproject/        # Django project settings/urls
 ├── bank/               # the actual app
 │   ├── models.py       # BankAccount, Transaction
@@ -64,11 +64,7 @@ dashboard, deposit, withdraw, transaction history) taken against the seeded
 
 ## Setup Instructions
 
-1. Clone the repo:
-   ```
-   git clone <repo-url>
-   cd bank_project
-   ```
+1. Open a terminal in this project's folder (`django-bank-transactions/`).
 
 2. Create a virtual environment and install dependencies:
    ```
