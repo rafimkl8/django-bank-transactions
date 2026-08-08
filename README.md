@@ -37,8 +37,15 @@ bank_project/
 │   └── templates/bank/
 ├── manage.py
 ├── requirements.txt
+├── screenshots/         # UI screenshots for submission
 └── db.sqlite3          # sample database with demo data already in it
 ```
+
+## Screenshots
+
+See the `screenshots/` folder for UI screenshots (registration, login,
+dashboard, deposit, withdraw, transaction history) taken against the seeded
+`demo_user` account.
 
 ## Models
 
