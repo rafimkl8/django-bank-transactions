@@ -50,9 +50,51 @@ django-bank-transactions/
 
 ## Screenshots
 
-See the `screenshots/` folder for UI screenshots (registration, login,
-dashboard, deposit, withdraw, transaction history) taken against the seeded
-`demo_user` account.
+All screenshots below were taken using the seeded `demo_user` account, in one
+session, so the numbers stay consistent from one screenshot to the next.
+
+1. **Registration**
+   New user sign-up form.
+   ![Registration](screenshots/01-registration.png)
+
+2. **Login**
+   Login form.
+   ![Login](screenshots/02-login.png)
+
+3. **Dashboard**
+   Current balance and totals right after logging in.
+   ![Dashboard](screenshots/03-dashboard.png)
+
+4. **Deposit**
+   Depositing money into the account.
+   ![Deposit](screenshots/04-deposit.png)
+
+5. **Dashboard after Deposit**
+   Balance and totals updated after the deposit.
+   ![Dashboard after deposit](screenshots/05-updated-dashboard-after-deposit.png)
+
+6. **Withdraw**
+   Withdrawing money from the account.
+   ![Withdraw](screenshots/06-withdraw.png)
+
+7. **Dashboard after Withdraw**
+   Balance and totals updated after the withdrawal.
+   ![Dashboard after withdraw](screenshots/07-updated-dashboard-after-withdraw.png)
+
+8. **Overdraft Prevention**
+   Trying to withdraw more than the current balance - rejected with an
+   error message, balance stays unchanged.
+   ![Overdraft prevention](screenshots/08-overdraft-prevention.png)
+
+9. **Transaction History**
+   Newest first, showing the deposit and withdrawal made above along with
+   the balance after each transaction.
+   ![Transaction history](screenshots/09-transaction-history.png)
+
+10. **Final Dashboard**
+    Dashboard at the end of the session, reflecting every transaction shown
+    in the screenshots above.
+    ![Final dashboard](screenshots/10-final-dashboard.png)
 
 ## Models
 
